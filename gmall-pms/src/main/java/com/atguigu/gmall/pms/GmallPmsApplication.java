@@ -10,7 +10,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 
 @EnableSwagger2
-@MapperScan("")
+@MapperScan("com.atguigu.gmall.pms.mapper")
 @EnableFeignClients
 @EnableDiscoveryClient
 @SpringBootApplication
