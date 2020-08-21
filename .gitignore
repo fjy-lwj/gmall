@@ -1,8 +1,11 @@
+<<<<<<< HEAD
 .idea/
 .mvn/
 mvnw*
 target/
 
+=======
+>>>>>>> 774991c80d8541e62a183d59e5e2513386052968
 # Compiled class file
 *.class
 
