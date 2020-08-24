@@ -1,10 +1,13 @@
 package com.atguigu.gmall.pms.entity;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
+
 import lombok.Data;
 
 /**
@@ -45,4 +48,12 @@ public class AttrGroupEntity implements Serializable {
 	 */
 	private String remark;
 
+	/**
+	 * 响应数据比AttrGroupEntity多出来一个字段，就是组下的属性列表attrEntities。所以要给AttrGroupEntity扩展一个字段，有两种扩展方式：
+	 *
+	 * 1. 直接在AttrGroupEntity中添加一个字段attrEntities
+	 * 2. 编写一个扩展类GroupVo继承AttrGroupEntity，然后扩展一个attrEntities
+	 */
+	@TableField(exist = false)
+	private List<AttrEntity> attrEntities;
 }
