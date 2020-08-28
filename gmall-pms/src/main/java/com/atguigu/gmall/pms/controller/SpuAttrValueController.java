@@ -35,6 +35,15 @@ public class SpuAttrValueController {
     private SpuAttrValueService spuAttrValueService;
 
     /**
+     * 根据spuId查询检索属性及值
+     */
+    @GetMapping("search/{spuId}")
+    public ResponseVo<List<SpuAttrValueEntity>> querySearchAttrValueBySpuId(@PathVariable("spuId") Long spuId) {
+        List<SpuAttrValueEntity> spuAttrValueEntities = this.spuAttrValueService.querySearchAttrValueBySpuId(spuId);
+        return ResponseVo.ok(spuAttrValueEntities);
+    }
+
+    /**
      * 列表
      */
     @GetMapping

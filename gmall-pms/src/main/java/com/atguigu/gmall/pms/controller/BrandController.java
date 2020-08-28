@@ -2,6 +2,7 @@ package com.atguigu.gmall.pms.controller;
 
 import java.util.List;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,8 @@ import com.atguigu.gmall.common.bean.PageResultVo;
 import com.atguigu.gmall.common.bean.ResponseVo;
 import com.atguigu.gmall.common.bean.PageParamVo;
 
+import javax.ws.rs.GET;
+
 /**
  * 品牌
  *
@@ -33,6 +36,10 @@ public class BrandController {
 
     @Autowired
     private BrandService brandService;
+
+    /**
+     * 根据品牌id查询品牌
+     */
 
     /**
      * 列表

@@ -36,6 +36,17 @@ public class SpuController {
     private SpuService spuService;
 
     /**
+     * 分页查询spu列表
+     */
+    @PostMapping("json")
+    @ApiOperation("分页查询数据导入es")
+    public ResponseVo<List<SpuEntity>> querySpuByPageJson(@RequestBody PageParamVo paramVo){
+        PageResultVo pageResultVo = spuService.queryPage(paramVo);
+
+        return ResponseVo.ok((List<SpuEntity>)pageResultVo.getList());
+    }
+
+    /**
      * 查询spu列表
      */
     @GetMapping("category/{categoryId}")
@@ -74,9 +85,9 @@ public class SpuController {
      */
     @PostMapping
     @ApiOperation("保存")
-    public ResponseVo<Object> save(@RequestBody SpuVo SpuVo){
+    public ResponseVo<Object> save(@RequestBody SpuVo spuVo){
 		//spuService.save(SpuVo);
-        this.spuService.bigSave(SpuVo);
+        this.spuService.bigSave(spuVo);
         return ResponseVo.ok();
     }
 

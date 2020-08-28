@@ -34,6 +34,8 @@ public class WareController {
     @Autowired
     private WareService wareService;
 
+
+
     /**
      * 列表
      */
