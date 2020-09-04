@@ -4,6 +4,8 @@ import com.atguigu.gmall.pms.entity.CategoryEntity;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 
+import java.util.List;
+
 /**
  * 商品三级分类
  * 
@@ -13,5 +15,10 @@ import org.apache.ibatis.annotations.Mapper;
  */
 @Mapper
 public interface CategoryMapper extends BaseMapper<CategoryEntity> {
-	
+
+    /**
+     * 根据一级分类id查询二级分类 三级分类
+     */
+    List<CategoryEntity> queryCategoriesWithSubByPid(Long pid);
+
 }

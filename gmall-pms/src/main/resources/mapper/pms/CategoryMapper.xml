@@ -2,4 +2,12 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.atguigu.gmall.pms.mapper.CategoryMapper">
 
+<!--    根据一级分类id查询二级分类 三级分类-->
+    <resultMap id="queryCategoryEntityMap" type="com.atguigu.gmall.pms.entity.CategoryEntity" autoMapping="true">
+        <id property="id" column="id"></id>
+        <collection property="subs" javaType="List" ofType="com.atguigu.gmall.pms.entity.CategoryEntity" select="queryCategoriesWithSubByPid" column="id"></collection>
+    </resultMap>
+    <select id="queryCategoriesWithSubByPid" resultMap="queryCategoryEntityMap">
+        select * from pms_category where parent_id = #{pid}
+    </select>
 </mapper>

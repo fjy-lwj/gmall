@@ -16,7 +16,7 @@ import java.util.List;
 
 public interface GmallWmsApi {
 
-    /**
+    /**数据导入es 第三个接口      商品详情页需要的数据接口：7
      * 根据skuId查询库存信息
      */
     @GetMapping("wms/waresku/sku/{skuId}")

@@ -28,6 +28,13 @@ spring:
     password: 123456
   redis:
     host: 192.168.80.130
+  rabbitmq:
+    host: 192.168.80.130
+    virtual-host: /feng
+    username: admin
+    password: admin
+    publisher-confirm-type: correlated
+    publisher-returns: true
 
 feign:
   sentinel:
