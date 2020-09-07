@@ -47,8 +47,19 @@ spring:
           uri: lb://item-service
           predicates:
             - Path=/item/**
+        - id: auth-route    #授权中心路由
+          uri: lb://auth-service
+          predicates:
+            - Host=sso.gmall.com
 
-
+#spring.cloud.gateway:
+      x-forwarded:  #当服务转发时,把域名信息通过host头信息转发给具体的服务
+        host-enabled: true
+#配置公钥路径,cookie名称
+auth:
+  jwt:
+    pubKeyPath: D:\IO\rsa\rsa.pub
+    cookieName: GMALL_TOKEN
 
 
 

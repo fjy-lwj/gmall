@@ -35,6 +35,40 @@ public class UserController {
     private UserService userService;
 
     /**
+     * 注册功能  code 验证码
+     */
+    @PostMapping("register")
+    public ResponseVo<Object> register(UserEntity userEntity, @RequestParam("code") String code) {
+        this.userService.register(userEntity,code);
+        return ResponseVo.ok();
+    }
+
+    /**
+     * 查询用户
+     * username/phone/email    password
+     */
+    @GetMapping("query")
+    public ResponseVo<UserEntity> queryUser(@RequestParam("loginName")String loginName,
+                                            @RequestParam("password") String password) {
+        UserEntity userEntity = this.userService.queryUser(loginName, password);
+        return ResponseVo.ok(userEntity);
+    }
+
+    /**
+     * 校验数据是否可用  (手机号 用户名 邮箱的唯一性)
+     * data: 要校验的数据
+     * type: 1.用户名 2.手机号 3.邮箱
+     */
+    @GetMapping("check/{data}/{type}")
+    public ResponseVo<Boolean> checkData(@PathVariable("data")String data,
+                                         @PathVariable("type")Integer type) {
+        Boolean flag = this.userService.checkData(data, type);
+        return ResponseVo.ok(flag);
+    }
+
+
+
+    /**
      * 列表
      */
     @GetMapping
